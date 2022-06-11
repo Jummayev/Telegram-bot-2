@@ -242,6 +242,11 @@ Taklifni ko'rib chiqing, bizning administratorimiz siz bilan bog'lanadi
                     'remove_keyboard' => true,
                 ]),
             ]);
+	        bot('SendMessage', [
+		        'chat_id' => $admin,
+		        'text' => $user['legal_entity'] == 0 ? $resultMessage['yu'][$user['language']] : $resultMessage['ji'][$user['language']],
+		        'parse_mode' => 'HTML',
+	        ]);
         } else {
             bot('SendMessage', [
                 'chat_id' => $chat_id,
